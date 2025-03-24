@@ -9,12 +9,13 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       floatingActionButton: FloatingActionButton(
         foregroundColor: Colors.black,
         backgroundColor: const Color(0xff60f0e7),
         shape: const CircleBorder(),
         onPressed: () {
-          showModalBottomSheet(context: context, builder: (context) => const AddNoteBottomSheet());
+          showModalBottomSheet(context: context,isScrollControlled: true, builder: (context) => const AddNoteBottomSheet());
         },
         child: const Icon(Icons.add),
       ),

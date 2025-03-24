@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/constants.dart';
 import 'package:notes_app/widgets/custom_text_field.dart';
+
+import 'custom_button.dart';
 
 class AddNoteBottomSheet extends StatelessWidget {
   const AddNoteBottomSheet({super.key});
@@ -10,27 +11,24 @@ class AddNoteBottomSheet extends StatelessWidget {
     TextEditingController titleController = TextEditingController();
     TextEditingController contentController = TextEditingController();
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 50.0, horizontal: 8),
-      child: Column(
-        children: [
-          CustomTextField(controller: titleController, hintText: 'Title'),
-          const SizedBox(height: 16),
-          CustomTextField(
-            controller: contentController,
-            hintText: 'Content',
-            maxLines: 5,
-          ),
-          const Spacer(flex: 1),
-          ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-              foregroundColor: Colors.black,
-              backgroundColor: kprimaryColor,
-              minimumSize: const Size(double.maxFinite, 50),
-            ),
-            child: const Text('Add', style: TextStyle(fontSize: 18)),
-          ),
-        ],
+      padding: EdgeInsets.only(
+        top: 32.0,
+        right: 8,
+        left: 8,
+        bottom: MediaQuery.of(context).viewInsets.bottom,
+      ),
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            CustomTextField(controller: titleController, hintText: 'Title'),
+            const SizedBox(height: 16),
+            CustomTextField(controller: contentController, hintText: 'Content', maxLines: 5),
+            const SizedBox(height: 16),
+            const CustomButton(),
+            const SizedBox(height: 16),
+          ],
+        ),
       ),
     );
   }
