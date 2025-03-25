@@ -8,8 +8,6 @@ class AddNoteBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController titleController = TextEditingController();
-    TextEditingController contentController = TextEditingController();
     return Padding(
       padding: EdgeInsets.only(
         top: 32.0,
@@ -17,18 +15,61 @@ class AddNoteBottomSheet extends StatelessWidget {
         left: 8,
         bottom: MediaQuery.of(context).viewInsets.bottom,
       ),
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            CustomTextField(controller: titleController, hintText: 'Title'),
-            const SizedBox(height: 16),
-            CustomTextField(controller: contentController, hintText: 'Content', maxLines: 5),
-            const SizedBox(height: 16),
-            const CustomButton(),
-            const SizedBox(height: 16),
-          ],
-        ),
+      child: const SingleChildScrollView(child: AddNoteForm()),
+    );
+  }
+}
+
+class AddNoteForm extends StatefulWidget {
+  const AddNoteForm({super.key});
+
+  @override
+  State<AddNoteForm> createState() => _AddNoteFormState();
+}
+
+class _AddNoteFormState extends State<AddNoteForm> {
+  late TextEditingController titleController;
+  late TextEditingController contentController;
+  @override
+  void initState() {
+    titleController = TextEditingController();
+    contentController = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    titleController.dispose();
+    contentController.dispose();
+    super.dispose();
+  }
+  final GlobalKey<FormState> formKey = GlobalKey();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  String? title, content;
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: formKey,
+      autovalidateMode: autovalidateMode,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          CustomTextField(controller: titleController, hintText: 'Title'),
+          const SizedBox(height: 16),
+          CustomTextField(controller: contentController, hintText: 'Content', maxLines: 5),
+          const SizedBox(height: 16),
+          CustomButton(
+            onPressed: () {
+              if (formKey.currentState!.validate()) {
+                formKey.currentState!.save();
+              } else {
+                autovalidateMode = AutovalidateMode.always;
+                setState(() {});
+              }
+            },
+          ),
+          const SizedBox(height: 16),
+        ],
       ),
     );
   }

@@ -13,7 +13,14 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      validator: (value) {
+        if (value?.isEmpty ?? true) {
+          return 'Field is required';
+        } else {
+          return null;
+        }
+      },
       controller: controller,
       cursorColor: kPrimaryColor,
       maxLines: maxLines,
