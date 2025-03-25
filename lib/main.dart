@@ -13,10 +13,13 @@ class NotesApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      routes: {HomeView.id: (context) => const HomeView(),EditNoteView.id: (context)=> const EditNoteView()},
+      routes: {
+        HomeView.id: (context) => const HomeView(),
+        EditNoteView.id: (context) => const EditNoteView(),
+      },
       initialRoute: HomeView.id,
       title: 'Notes App',
-      theme: ThemeData(brightness: Brightness.dark,fontFamily: 'Poppins',useMaterial3: true),
+      theme: ThemeData(brightness: Brightness.dark, fontFamily: 'Poppins', useMaterial3: true),
     );
   }
 }
