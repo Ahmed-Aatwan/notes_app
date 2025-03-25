@@ -12,7 +12,7 @@ class CustomButton extends StatelessWidget {
       onPressed: () {},
       style: ElevatedButton.styleFrom(
         foregroundColor: Colors.black,
-        backgroundColor: kprimaryColor,
+        backgroundColor: kPrimaryColor,
         minimumSize: const Size(double.maxFinite, 50),
       ),
       child: const Text('Add', style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
