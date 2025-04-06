@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/edit_note_view.dart';
 
 class CustomNoteItem extends StatelessWidget {
-  const CustomNoteItem({super.key});
-
+  const CustomNoteItem({super.key, required this.noteModel});
+  final NoteModel noteModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -18,12 +19,12 @@ class CustomNoteItem extends StatelessWidget {
         child: Column(
           children: [
             ListTile(
-              title: const Text('Smashin', style: TextStyle(color: Colors.black, fontSize: 28)),
-              subtitle: const Padding(
-                padding: EdgeInsets.only(top: 16.0, right: 16),
+              title:  Text(noteModel.noteTitle, style: const TextStyle(color: Colors.black, fontSize: 28)),
+              subtitle:  Padding(
+                padding: const EdgeInsets.only(top: 16.0, right: 16),
                 child: Text(
-                  'Smash ur opponents with ur style',
-                  style: TextStyle(color: Color(0xff926a32), fontSize: 16),
+                  noteModel.noteContent,
+                  style: const TextStyle(color: Color(0xff926a32), fontSize: 16),
                 ),
               ),
               trailing: IconButton(
@@ -31,12 +32,12 @@ class CustomNoteItem extends StatelessWidget {
                 icon: const Icon(FontAwesomeIcons.trash, color: Colors.black, size: 24),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(right: 16.0),
+             Padding(
+              padding: const EdgeInsets.only(right: 16.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text('May 16,2025', style: TextStyle(color: Color(0xff926a32), fontSize: 14)),
+                  Text(noteModel.noteDate, style: const TextStyle(color: Color(0xff926a32), fontSize: 14)),
                 ],
               ),
             ),
