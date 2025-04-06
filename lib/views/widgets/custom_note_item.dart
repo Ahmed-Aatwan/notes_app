@@ -15,12 +15,18 @@ class CustomNoteItem extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.only(bottom: 10),
         padding: const EdgeInsets.only(left: 16, top: 16, bottom: 16),
-        decoration: BoxDecoration(color: Colors.amber, borderRadius: BorderRadius.circular(16)),
+        decoration: BoxDecoration(
+          color: Color(noteModel.color),
+          borderRadius: BorderRadius.circular(16),
+        ),
         child: Column(
           children: [
             ListTile(
-              title:  Text(noteModel.noteTitle, style: const TextStyle(color: Colors.black, fontSize: 28)),
-              subtitle:  Padding(
+              title: Text(
+                noteModel.noteTitle,
+                style: const TextStyle(color: Colors.black, fontSize: 28),
+              ),
+              subtitle: Padding(
                 padding: const EdgeInsets.only(top: 16.0, right: 16),
                 child: Text(
                   noteModel.noteContent,
@@ -28,16 +34,21 @@ class CustomNoteItem extends StatelessWidget {
                 ),
               ),
               trailing: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  noteModel.delete();
+                },
                 icon: const Icon(FontAwesomeIcons.trash, color: Colors.black, size: 24),
               ),
             ),
-             Padding(
+            Padding(
               padding: const EdgeInsets.only(right: 16.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(noteModel.noteDate, style: const TextStyle(color: Color(0xff926a32), fontSize: 14)),
+                  Text(
+                    noteModel.noteDate,
+                    style: const TextStyle(color: Color(0xff926a32), fontSize: 14),
+                  ),
                 ],
               ),
             ),
