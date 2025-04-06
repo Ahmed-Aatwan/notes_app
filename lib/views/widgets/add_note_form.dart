@@ -8,7 +8,7 @@ import 'package:notes_app/views/widgets/custom_text_field.dart';
 import 'custom_button.dart';
 
 class AddNoteForm extends StatefulWidget {
-  const AddNoteForm({super.key,});
+  const AddNoteForm({super.key});
   @override
   State<AddNoteForm> createState() => _AddNoteFormState();
 }
@@ -48,7 +48,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
           BlocBuilder<AddNoteCubit, AddNoteState>(
             builder: (context, state) {
               return CustomButton(
-                isLoading: state is AddNoteLoading? true : false ,
+                isLoading: state is AddNoteLoading ? true : false,
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();

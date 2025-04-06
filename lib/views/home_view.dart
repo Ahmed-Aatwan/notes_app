@@ -9,7 +9,6 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: true,
       floatingActionButton: FloatingActionButton(
         foregroundColor: Colors.black,
         backgroundColor: const Color(0xff60f0e7),
