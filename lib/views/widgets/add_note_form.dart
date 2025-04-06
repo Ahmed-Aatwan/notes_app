@@ -8,8 +8,8 @@ import 'package:notes_app/views/widgets/custom_text_field.dart';
 import 'custom_button.dart';
 
 class AddNoteForm extends StatefulWidget {
-  const AddNoteForm({super.key});
-
+  const AddNoteForm({super.key, required this.isLoading});
+  final bool isLoading;
   @override
   State<AddNoteForm> createState() => _AddNoteFormState();
 }
@@ -47,6 +47,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
           CustomTextField(controller: contentController, hintText: 'Content', maxLines: 5),
           const SizedBox(height: 16),
           CustomButton(
+            isLoading: widget.isLoading,
             onPressed: () {
               if (formKey.currentState!.validate()) {
                 formKey.currentState!.save();
