@@ -3,13 +3,14 @@ Description
 A colorful and responsive note-taking app built with Flutter. Users can add, delete, and search through personal notes. All data is stored locally using Hive for persistence.
 
 Features
-Create and delete notes
 
-Local storage with Hive
+-Create and delete notes
 
-Search functionality
+-Local storage with Hive
 
-Color-coded cards and responsive layout
+-Search functionality
+
+-Color-coded cards and responsive layout
 
 Screenshots
 
@@ -19,9 +20,11 @@ Screenshots
 
 APK
 [Download APK (https://github.com/Ahmed-Aatwan/notes_app/releases/download/v1.0/notes_app_release.apk)]
+
 Technologies
-Flutter & Dart
 
-Hive (local NoSQL storage)
+-Flutter & Dart
 
-BLoC
+-Hive (local NoSQL storage)
+
+-BLoC
