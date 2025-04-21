@@ -1,16 +1,26 @@
-# notes_app
+📝 Notes App
+Description
+A colorful and responsive note-taking app built with Flutter. Users can add, delete, and search through personal notes. All data is stored locally using Hive for persistence.
 
-A new Flutter project.
+Features
+Create and delete notes
 
-## Getting Started
+Local storage with Hive
 
-This project is a starting point for a Flutter application.
+Search functionality
 
-A few resources to get you started if this is your first Flutter project:
+Color-coded cards and responsive layout
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Screenshots
+![image](https://github.com/user-attachments/assets/9fdda98f-d33f-49d0-8165-af7c902e4bba)
+![image](https://github.com/user-attachments/assets/a31fca2d-bcf8-43ce-9c7b-4ef53d3f0133)
+![image](https://github.com/user-attachments/assets/2906a538-d341-4ed3-9b6d-a2347e3b6230)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+APK
+[Download APK (https://github.com/Ahmed-Aatwan/notes_app/releases/download/v1.0/notes_app_release.apk)]
+Technologies
+Flutter & Dart
+
+Hive (local NoSQL storage)
+
+BLoC
